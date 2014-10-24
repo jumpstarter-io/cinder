@@ -679,7 +679,7 @@ class VolumeManager(manager.SchedulerDependentManager):
                                'snapshot_id': snapshot.id})
                 snapshot.status = 'error'
                 snapshot.save(context)
-                raise exception.MetadataCopyFailure(reason=ex)
+                #raise exception.MetadataCopyFailure(reason=ex)
 
         snapshot.status = 'available'
         snapshot.progress = '100%'
