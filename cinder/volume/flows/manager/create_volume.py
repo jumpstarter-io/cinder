@@ -397,7 +397,8 @@ class CreateVolumeFromSpecTask(flow_utils.CinderTask):
             LOG.exception(exception_template % {'src_type': src_type,
                                                 'src_id': src_id,
                                                 'vol_id': volume_id})
-            raise exception.MetadataCopyFailure(reason=ex)
+            # this breaks creating snapshot when image is gone
+            # raise exception.MetadataCopyFailure(reason=ex)
 
     def _create_from_snapshot(self, context, volume_ref, snapshot_id,
                               **kwargs):

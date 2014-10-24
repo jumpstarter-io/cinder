@@ -576,7 +576,8 @@ class VolumeManager(manager.SchedulerDependentManager):
                 self.db.snapshot_update(context,
                                         snapshot_ref['id'],
                                         {'status': 'error'})
-                raise exception.MetadataCopyFailure(reason=ex)
+                # this breaks creating snapshot when image is gone
+                # raise exception.MetadataCopyFailure(reason=ex)
 
         snapshot_ref = self.db.snapshot_update(context,
                                                snapshot_ref['id'],
