@@ -1,0 +1,12 @@
+[Unit]
+Description=Cinder Volume service
+After=network.target
+
+[Service]
+Restart=always
+RestartSec=3
+ExecStart=/usr/bin/cinder-volume --config-dir /etc/cinder/
+User=cinder
+
+[Install]
+WantedBy=multi-user.target
